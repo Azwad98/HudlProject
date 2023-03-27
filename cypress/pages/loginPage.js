@@ -17,8 +17,8 @@ class LoginPage {
 
   login(email, password) {
     this.getEmailInput().type(email);
-    this.getPasswordInput().type(password);
-    this.getLoginButton().click();
+    this.getPassInput().type(password);
+    this.getLoginBtn().click();
   }
 }
 

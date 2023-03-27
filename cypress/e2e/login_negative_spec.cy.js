@@ -1,46 +1,36 @@
 import LoginPage from '../pages/loginPage';
+const config = require('../config/config');
 const generateRandomString = require('../utils/randomString');
 
 describe('Login Negative Test Cases', () => {
   const loginPage = new LoginPage();
-  const username = 'm.azwad.rashid@gmail.com';
-  const password = 'D_Sr.aJ6w#z#Dg4';
   const randomUsername = generateRandomString(8);
   const randomPassword = generateRandomString(12);
 
   it('Input wrong email', () => {
     loginPage.visit();
-    loginPage.login(randomUsername, password);
+    loginPage.login(randomUsername, config.password);
 
-    cy.get('.styles_errorDisplayInnerContainer_3R2ni-zSvPIKWfKXiviJhH')
+    cy.get(config.errorMessageSelector)
       .should('be.visible')
-      .and(
-        'contain',
-        "We didn't recognize that email and/or password.Need help?"
-      );
+      .and('contain', config.errorMessage);
   });
 
   it('Input wrong password', () => {
     loginPage.visit();
-    loginPage.login(username, randomPassword);
+    loginPage.login(config.username, randomPassword);
 
-    cy.get('.styles_errorDisplayInnerContainer_3R2ni-zSvPIKWfKXiviJhH')
+    cy.get(config.errorMessageSelector)
       .should('be.visible')
-      .and(
-        'contain',
-        "We didn't recognize that email and/or password.Need help?"
-      );
+      .and('contain', config.errorMessage);
   });
 
   it('Input wrong details', () => {
     loginPage.visit();
     loginPage.login(randomUsername, randomPassword);
 
-    cy.get('.styles_errorDisplayInnerContainer_3R2ni-zSvPIKWfKXiviJhH')
+    cy.get(config.errorMessageSelector)
       .should('be.visible')
-      .and(
-        'contain',
-        "We didn't recognize that email and/or password.Need help?"
-      );
+      .and('contain', config.errorMessage);
   });
 });

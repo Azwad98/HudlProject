@@ -1,0 +1,24 @@
+{
+  "name": "hudlproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azwad98/HudlProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azwad98/HudlProject/issues"
+  },
+  "homepage": "https://github.com/Azwad98/HudlProject#readme",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}

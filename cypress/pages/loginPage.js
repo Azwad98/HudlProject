@@ -1,3 +1,5 @@
+import { typeOrSet } from '../utils/typeOrSet';
+
 class LoginPage {
   visit() {
     cy.visit('https://www.hudl.com/login?forward=%2Flibrary%2F320073');
@@ -16,8 +18,8 @@ class LoginPage {
   }
 
   login(email, password) {
-    this.getEmailInput().type(email);
-    this.getPassInput().type(password);
+    typeOrSet(this.getEmailInput(), email);
+    typeOrSet(this.getPassInput(), password);
     this.getLoginBtn().click();
   }
 }

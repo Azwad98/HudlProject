@@ -33,4 +33,31 @@ describe('Login Negative Test Cases', () => {
       .should('be.visible')
       .and('contain', config.errorMessage);
   });
+
+  it('Missing email with correct password', () => {
+    loginPage.visit();
+    loginPage.login('', config.password);
+
+    cy.get(config.errorMessageSelector)
+      .should('be.visible')
+      .and('contain', config.errorMessage);
+  });
+
+  it('Missing password with correct email', () => {
+    loginPage.visit();
+    loginPage.login(config.username, '');
+
+    cy.get(config.errorMessageSelector)
+      .should('be.visible')
+      .and('contain', config.errorMessage);
+  });
+
+  it('Missing fields', () => {
+    loginPage.visit();
+    loginPage.getLoginBtn().click();
+
+    cy.get(config.errorMessageSelector)
+      .should('be.visible')
+      .and('contain', config.errorMessage);
+  });
 });
